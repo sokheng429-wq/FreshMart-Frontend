@@ -1,0 +1,62 @@
+/* ===== MEMBER DETAIL PAGE - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Member avatar */
+.member-avatar {
+  transition: box-shadow 0.15s;
+}
+
+.member-avatar:hover {
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.4);
+}
+
+/* Detail field label */
+.detail-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Profile info card */
+.profile-card {
+  transition: border-color 0.15s;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .member-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .member-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,53 @@
+/* ===== MEMBER FORM - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Form section card */
+.form-section-card {
+  transition: border-color 0.15s;
+}
+
+/* Field validation error */
+.field-error {
+  font-size: 0.75rem;
+  color: #f87171;
+  margin-top: 0.25rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .member-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-form-actions {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+}

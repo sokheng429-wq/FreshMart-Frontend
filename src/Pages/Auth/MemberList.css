@@ -1,0 +1,67 @@
+/* ===== MEMBER LIST - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Horizontal scroll for table */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Member row hover */
+.member-row {
+  transition: background-color 0.1s;
+}
+
+/* Department filter chip */
+.dept-chip {
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* Avatar initials */
+.member-avatar-initials {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .member-list-filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,677 @@
+/* ===== ADD PRODUCTS PAGE ===== */
+.adp-page {
+  min-height: 100vh;
+  background: var(--navy);
+  color: #ffffff;
+  padding-bottom: 60px;
+}
+
+.adp-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== HERO ===== */
+.adp-hero {
+  position: relative;
+  padding: 64px 24px 52px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.adp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  z-index: 0;
+}
+
+.adp-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 60%, rgba(255, 255, 255, 0.32) 0%, transparent 45%),
+    radial-gradient(circle at 75% 35%, rgba(255, 255, 255, 0.28) 0%, transparent 45%);
+}
+
+.adp-hero>.adp-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.adp-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  text-decoration: none;
+  margin-bottom: -20px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.adp-back-link:hover {
+  transform: translateX(-5px) scale(1.04);
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(35, 47, 63, 0.5);
+}
+
+.adp-hero-icon {
+  font-size: 2.6rem;
+  display: block;
+  margin-bottom: 14px;
+  animation: adpBounce 2s ease-in-out infinite;
+}
+
+@keyframes adpBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.adp-hero-title {
+  font-family: var(--font-family);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--text-strong);
+  margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+
+.adp-hero-sub {
+  font-size: 1.05rem;
+  color: var(--text-strong);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ===== BODY ===== */
+.adp-body {
+  padding: 0 24px 80px;
+  margin-top: -28px;
+}
+
+.adp-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ===== FORM CARD ===== */
+.adp-form-card {
+  background: var(--navy);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 34px 36px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.adp-form-header {
+  margin-bottom: 28px;
+}
+
+.adp-form-title {
+  font-family: var(--font-family);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.adp-form-sub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+/* ===== FORM ===== */
+.adp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.adp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.adp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adp-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.adp-req {
+  font-size: 0.7rem;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.adp-opt {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 400;
+}
+
+.adp-field input,
+.adp-field select,
+.adp-field textarea {
+  padding: 11px 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 0.93rem;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.85);
+  background: #2d3f50;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.adp-field input:focus,
+.adp-field select:focus,
+.adp-field textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  background: var(--navy);
+  box-shadow: 0 0 15px rgba(35, 47, 63, 0.4), 0 0 0 3px rgba(35, 47, 63, 0.2);
+}
+
+.adp-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.adp-input--err {
+  border-color: var(--danger) !important;
+  background: var(--danger-tint) !important;
+}
+
+.adp-err {
+  font-size: 0.78rem;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* ===== IMAGE DROPZONE / PREVIEW ===== */
+.adp-dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  border: 2px dashed var(--border-default);
+  border-radius: 12px;
+  background: #2d3f50;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.adp-dropzone:hover {
+  border-color: var(--brand);
+  background: #34455c;
+}
+
+.adp-dropzone--over {
+  border-color: var(--brand);
+  background: #2d3f50;
+}
+
+.adp-file-hidden {
+  display: none;
+}
+
+.adp-dropzone-hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.adp-photo-preview {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.adp-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid #2d3f50;
+}
+
+.adp-photo-change {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  padding: 4px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.adp-photo-change:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* ===== SUBMIT ===== */
+.adp-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--brand);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.adp-submit-btn:hover {
+  background: var(--brand-dark);
+  transform: scale(1.02);
+}
+
+.adp-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== SIDEBAR LIST ===== */
+.adp-sidebar {
+  position: sticky;
+  top: 84px;
+}
+
+.adp-list-card {
+  background: var(--navy);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.adp-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* ===== SHORTCUT BUTTONS ===== */
+.adp-shortcuts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  background: #2d3f50;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.adp-shortcuts-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin-right: 2px;
+}
+
+.adp-shortcut-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(35, 47, 63, 0.15);
+  color: var(--brand);
+  border: 1px solid rgba(35, 47, 63, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.adp-shortcut-btn:hover {
+  background: var(--brand);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.admind-shortcut-edit {
+  background: rgba(255, 153, 0, 0.15);
+  color: var(--accent);
+  border-color: rgba(255, 153, 0, 0.3);
+}
+
+.admind-shortcut-edit:hover {
+  background: var(--accent);
+  color: var(--navy-dark);
+}
+
+.admind-shortcut-delete {
+  background: rgba(229, 57, 53, 0.15);
+  color: #ef5350;
+  border-color: rgba(229, 57, 53, 0.3);
+}
+
+.admind-shortcut-delete:hover {
+  background: var(--danger);
+  color: #ffffff;
+}
+
+.adp-list-title {
+  font-family: var(--font-family);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.adp-list-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+/* ===== EMPTY ===== */
+.adp-empty {
+  text-align: center;
+  padding: 36px 16px;
+}
+
+.adp-empty-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.adp-empty p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== PRODUCT CARDS ===== */
+.adp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.adp-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #2d3f50;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.adp-card:hover {
+  border-color: rgba(35, 47, 63, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.adp-card-img-wrap {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #2d3f50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adp-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.adp-card-initial {
+  font-size: 1.4rem;
+}
+
+.adp-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.adp-card-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adp-card-badges {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.adp-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.adp-badge--cat {
+  background: #34455c;
+  color: var(--brand-dark);
+}
+
+.adp-badge--unit {
+  background: var(--accent-tint-soft);
+  color: var(--accent-dark);
+}
+
+.adp-card-prices {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adp-card-price {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.adp-card-old-price {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.25);
+  text-decoration: line-through;
+}
+
+.adp-card-stock {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--brand);
+  background: #34455c;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.adp-card-stock--zero {
+  color: var(--danger);
+  background: var(--danger-tint);
+}
+
+.adp-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.adp-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.adp-edit-btn:hover {
+  color: var(--info);
+  background: var(--surface-2);
+}
+
+.adp-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.adp-remove-btn:hover {
+  color: var(--danger);
+  background: var(--danger-tint);
+}
+
+.adp-cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  background: #2d3f50;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.adp-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ===== VIEW LINK ===== */
+.adp-view-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.adp-view-link:hover {
+  gap: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 800px) {
+  .adp-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .adp-sidebar {
+    position: static;
+  }
+
+  .adp-form-card {
+    padding: 24px 18px;
+  }
+
+  .adp-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .adp-hero {
+    padding: 48px 16px 40px;
+  }
+
+  .adp-hero-title {
+    font-size: 1.8rem;
+  }
+}

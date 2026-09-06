@@ -1,0 +1,48 @@
+/* ===== ATTRIBUTES - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Attribute value pill */
+.attr-pill {
+  transition: background-color 0.1s, opacity 0.1s;
+}
+
+/* Type tag badge */
+.type-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .attributes-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

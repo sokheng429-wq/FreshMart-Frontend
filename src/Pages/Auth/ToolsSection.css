@@ -1,0 +1,68 @@
+/* ===== TOOLS SECTION - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles — green accent for section/layout pages */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #77BC1F;
+  outline-offset: 2px;
+}
+
+/* Tool card hover */
+.tool-card {
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.tool-card:hover {
+  border-color: #77BC1F;
+  box-shadow: 0 0 0 1px rgba(119, 188, 31, 0.2);
+}
+
+/* Inline price/barcode edit input */
+.inline-edit-input {
+  transition: border-color 0.15s;
+}
+
+.inline-edit-input:focus {
+  border-color: #77BC1F;
+}
+
+/* Feedback banner */
+.feedback-success {
+  background-color: rgba(119, 188, 31, 0.12);
+  border: 1px solid rgba(119, 188, 31, 0.3);
+  color: #a3e635;
+}
+
+.feedback-error {
+  background-color: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #f87171;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .tools-section-layout {
+    padding: 1rem;
+  }
+}

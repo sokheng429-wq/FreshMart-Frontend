@@ -1,0 +1,76 @@
+/* ===== STOCKS LIST - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Horizontal scroll for table */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Low stock indicator */
+.low-stock-badge {
+  animation: pulse-low-stock 2s ease-in-out infinite;
+}
+
+@keyframes pulse-low-stock {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Stock row hover */
+.stock-row {
+  transition: background-color 0.1s;
+}
+
+/* Column chooser modal */
+.column-chooser-item {
+  transition: background-color 0.1s;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .stocks-filter-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stocks-actions {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,72 @@
+/* ===== TRANSACTION DOC CREATE - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Product search dropdown */
+.product-search-dropdown {
+  max-height: 240px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #0f172a;
+}
+
+.product-search-dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+
+.product-search-dropdown::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.product-search-dropdown::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 2px;
+}
+
+/* Document line row */
+.doc-line-row {
+  transition: background-color 0.1s;
+}
+
+/* Save confirmation overlay */
+.save-confirmation {
+  background: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .transaction-doc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-line-table {
+    font-size: 0.8rem;
+  }
+}

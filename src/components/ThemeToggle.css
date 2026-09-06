@@ -1,0 +1,69 @@
+/* iOS-style modern theme toggle button */
+.theme-pill {
+  position: relative;
+  width: 68px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50px;
+  padding: 0;
+  cursor: pointer;
+  overflow: visible;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.theme-pill:hover {
+  border-color: var(--accent);
+}
+
+.theme-pill-track {
+  position: absolute;
+  inset: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.theme-pill-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: opacity 0.25s ease;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.theme-pill-side:not(.theme-pill-side--on) {
+  opacity: 0.3;
+}
+
+.theme-pill-side--on {
+  opacity: 1;
+}
+
+.theme-pill-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 28px;
+  border-radius: 50px;
+  background: var(--accent);
+  color: var(--navy-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--accent-tint);
+  transition: left 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease;
+  pointer-events: none;
+}
+
+.theme-pill-thumb--right {
+  left: 34px;
+  background: var(--brand);
+  color: var(--navy-dark);
+  box-shadow: 0 2px 8px var(--brand-tint);
+}

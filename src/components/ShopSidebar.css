@@ -1,0 +1,211 @@
+/* ============================================================
+   SHOP SIDEBAR — left navigation for the shop section
+   (Products / Promotion / Partners / My Orders / Track Order)
+   ============================================================ */
+
+.shop-layout {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.shop-sidebar {
+  position: sticky;
+  top: 96px;
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--brand-border);
+  border-radius: 20px;
+  padding: 24px 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08),
+              0 8px 32px rgba(119, 188, 31, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.shop-sidebar-title {
+  margin: 0 10px 14px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.shop-sidebar-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand) 0%, transparent 100%);
+  border-radius: 2px;
+}
+
+.shop-sidebar-title--acct {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--brand-border);
+}
+
+.shop-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.shop-sidebar-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 14px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-body);
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.shop-sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: var(--brand);
+  border-radius: 0 2px 2px 0;
+  transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shop-sidebar-link span {
+  font-size: 1.125rem;
+  line-height: 1;
+  filter: grayscale(0.3);
+  transition: filter 0.2s ease;
+}
+
+.shop-sidebar-link:hover {
+  color: var(--text-strong);
+  background: var(--brand-tint-soft);
+  transform: translateX(3px);
+}
+
+.shop-sidebar-link:hover span {
+  filter: grayscale(0);
+}
+
+.shop-sidebar-link:hover::before {
+  height: 60%;
+}
+
+.shop-sidebar-link--on {
+  color: var(--navy-dark);
+  background: linear-gradient(135deg, var(--brand) 0%, #90cc38 100%);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(119, 188, 31, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.shop-sidebar-link--on span {
+  filter: grayscale(0);
+}
+
+.shop-sidebar-link--on::before {
+  height: 0;
+}
+
+.shop-sidebar-link--on:hover {
+  color: var(--navy-dark);
+  background: linear-gradient(135deg, #90cc38 0%, var(--brand) 100%);
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(119, 188, 31, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.shop-layout-main {
+  flex: 1;
+  min-width: 0;
+  padding-right: 24px;
+  animation: shop-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes shop-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive: sidebar becomes a horizontal rail on top */
+@media (max-width: 920px) {
+  .shop-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px 12px 40px;
+  }
+
+  .shop-layout-main {
+    padding-right: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .shop-sidebar {
+    position: static;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .shop-sidebar-title {
+    display: none;
+  }
+
+  .shop-sidebar-title--acct {
+    display: none;
+  }
+
+  .shop-sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 6px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .shop-sidebar-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 9px 14px;
+  }
+
+  .shop-sidebar-link:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-sidebar-link {
+    transition: none;
+  }
+  .shop-sidebar-link:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Sign-In Diagnostics</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; color: #1a2433; }
+    code { background: #f1f3f6; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; word-break: break-all; }
+    #status { margin: 1rem 0; padding: 0.9rem 1rem; border-radius: 8px; background: #fff8e6; border: 1px solid #ffe1a8; min-height: 1.4em; white-space: pre-wrap; }
+    #status.ok { background: #e9f9ee; border-color: #8fdc9f; }
+    #status.err { background: #fdeaea; border-color: #f5a7a7; }
+    #btn { margin: 1rem 0; display: flex; justify-content: center; }
+    li { margin: 0.3rem 0; }
+  </style>
+</head>
+<body>
+  <h2>Google Sign-In diagnostics</h2>
+  <p>Client id: <code id="cid"></code></p>
+  <p>This page uses the <b>same ID-token flow as the app</b> (<code>google.accounts.id</code>). Click the button — the account-chooser popup should open.</p>
+  <div id="btn"></div>
+  <div id="status">Loading Google Identity Services…</div>
+  <h3>What the messages mean</h3>
+  <ul>
+    <li><b>SUCCESS — got an ID token…</b> → the flow works end-to-end in the browser; the backend will verify this token and log you in.</li>
+    <li><b>origin_mismatch / "Access blocked"</b> → <code>http://localhost:5173</code> is missing from the client's <b>Authorized JavaScript origins</b> (or propagation hasn't finished — wait a few minutes).</li>
+    <li><b>invalid_client</b> → the client id here doesn't exist in the selected project, or the client type is not Web application.</li>
+    <li><b>Google hasn't verified this app</b> → the consent screen is Testing/Unverified; add yourself as a test user or click Continue in the popup.</li>
+    <li><b>script load failure</b> → network can't reach <code>accounts.google.com</code>.</li>
+  </ul>
+
+  <script>
+    const CLIENT_ID = '457341066065-0ja001e981hnhhe92uffiu7cbqpg6q1v.apps.googleusercontent.com'
+    document.getElementById('cid').textContent = CLIENT_ID
+
+    const statusEl = document.getElementById('status')
+    const setStatus = (msg, kind = '') => {
+      statusEl.textContent = msg
+      statusEl.className = kind
+      console.log('[gis-test]', msg)
+    }
+
+    const script = document.createElement('script')
+    script.src = 'https://accounts.google.com/gsi/client'
+    script.onload = () => {
+      setStatus('GIS script loaded. Initializing…')
+      google.accounts.id.initialize({
+        client_id: CLIENT_ID,
+        ux_mode: 'popup',
+        callback: (response) => {
+          console.log('[gis-test] callback response:', response)
+          if (response?.credential) {
+            setStatus('SUCCESS — got an ID token (first 40 chars): ' + response.credential.slice(0, 40) + '\nThe backend will verify this token and log you in.', 'ok')
+          } else if (response?.error) {
+            setStatus('Google error: ' + response.error + (response.error_description ? ' — ' + response.error_description : ''), 'err')
+          } else {
+            setStatus('No credential and no error in the callback: ' + JSON.stringify(response), 'err')
+          }
+        },
+      })
+      google.accounts.id.renderButton(document.getElementById('btn'), {
+        type: 'standard',
+        theme: 'outline',
+        size: 'large',
+        text: 'continue_with',
+        shape: 'pill',
+        width: 300,
+      })
+      setStatus('Pill button rendered below. Click it — the account-chooser popup should open.')
+    }
+    script.onerror = () => setStatus('FAILED to load the GIS script — network cannot reach accounts.google.com.', 'err')
+    document.head.appendChild(script)
+  </script>
+</body>
+</html>

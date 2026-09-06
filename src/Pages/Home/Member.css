@@ -1,0 +1,399 @@
+/* ============================================================
+   FRESHMART MEMBER & TEAM DIRECTORY — Brand Palette Design
+   Primary Green: #77BC1F | Accent Orange: #FF9900 | Navy: #232F3F
+   NO Black Backgrounds
+   ============================================================ */
+
+.member-page {
+  background: #232F3F;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 50px 0 100px;
+  font-family: var(--font-sans, "Montserrat", "Kantumruy Pro", sans-serif);
+}
+
+.member-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ── */
+.member-hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.member-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #77BC1F;
+  background: rgba(119, 188, 31, 0.14);
+  border: 1px solid rgba(119, 188, 31, 0.35);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.member-3d-eyebrow-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.member-hero-title {
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.member-hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 680px;
+  margin: 0 0 32px;
+}
+
+/* ── Filter & Search Bar ── */
+.member-controls-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.member-filter-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.member-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.member-pill:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.member-pill--active {
+  background: #77BC1F;
+  color: #1A232F;
+  border-color: #77BC1F;
+  font-weight: 900;
+  box-shadow: 0 4px 14px rgba(119, 188, 31, 0.35);
+}
+
+.member-pill-count {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 7px;
+  border-radius: 100px;
+  font-size: 0.725rem;
+}
+
+.member-pill--active .member-pill-count {
+  background: rgba(26, 35, 47, 0.25);
+  color: #1A232F;
+}
+
+/* Search Box */
+.member-search-box {
+  position: relative;
+  min-width: 280px;
+}
+
+.member-search-input {
+  width: 100%;
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  padding: 10px 38px 10px 40px;
+  font-size: 0.85rem;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.member-search-input:focus {
+  border-color: #77BC1F;
+  box-shadow: 0 0 0 3px rgba(119, 188, 31, 0.2);
+}
+
+.member-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.member-search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px;
+}
+
+.member-search-clear:hover {
+  color: #ffffff;
+}
+
+/* ── Member Cards Grid (Picture, Name, and Position Only) ── */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.member-card {
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms ease, box-shadow 180ms ease;
+  user-select: none;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(119, 188, 31, 0.4);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+}
+
+.member-card--admin {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Photo Visual */
+.member-card-visual {
+  position: relative;
+  height: 290px;
+  background: #17202A;
+  overflow: hidden;
+}
+
+.member-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.member-card:hover .member-card-img {
+  transform: scale(1.04);
+}
+
+.member-card-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(30, 40, 54, 0) 65%, rgba(30, 40, 54, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* Card Body */
+.member-card-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.member-card-name {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.member-card-role {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #77BC1F;
+  margin: 0;
+}
+
+.member-admin-edit-hint {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FF9900;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+
+/* ── Join Team Banner ── */
+.member-join-banner {
+  background: #1E2836;
+  border: 1px solid rgba(119, 188, 31, 0.35);
+  border-radius: 28px;
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.member-join-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.member-join-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(119, 188, 31, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.member-join-3d-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.member-join-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.member-join-sub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  max-width: 600px;
+}
+
+.member-btn-join {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FF9900;
+  color: #1A232F;
+  border-radius: 100px;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(255, 153, 0, 0.35);
+  transition: all 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.member-btn-join:hover {
+  background: #FFA726;
+  transform: translateY(-2px);
+}
+
+.member-join-btn-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* ── Empty State ── */
+.member-empty-card {
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 60px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.member-empty-3d-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.member-empty-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.member-empty-btn {
+  background: #77BC1F;
+  color: #1A232F;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .member-join-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .member-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .member-search-box {
+    width: 100%;
+  }
+}

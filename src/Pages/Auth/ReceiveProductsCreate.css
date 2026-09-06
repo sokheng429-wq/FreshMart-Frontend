@@ -1,0 +1,70 @@
+/* ===== RECEIVE PRODUCTS CREATE - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Horizontal scroll for table */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Product line row */
+.product-line-row {
+  transition: background-color 0.1s;
+}
+
+/* Print preview overlay */
+.print-preview {
+  background: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+/* Total cost summary */
+.cost-summary {
+  border-top: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .receive-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-line-table {
+    font-size: 0.8rem;
+  }
+}

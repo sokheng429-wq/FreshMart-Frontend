@@ -1,0 +1,73 @@
+/* ===== MANAGE USERS - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Horizontal scroll for table */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Role badge */
+.role-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* User row hover */
+.user-row {
+  transition: background-color 0.1s;
+}
+
+/* Avatar initials circle */
+.avatar-circle {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .manage-users-filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .manage-users-actions {
+    flex-direction: column;
+  }
+}

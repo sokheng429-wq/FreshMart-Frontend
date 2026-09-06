@@ -1,0 +1,117 @@
+/* =========================================================================
+   REGISTER AUTH STYLES (FreshMart)
+   ========================================================================= */
+
+.auth--register .auth-panel {
+  background: linear-gradient(145deg, #1e3a1e 0%, #064e3b 40%, #047857 75%, #0f172a 100%);
+}
+
+.auth-form-wrap--wide {
+  max-width: 560px;
+}
+
+/* =========================================================================
+   FORM SECTION CARDS
+   ========================================================================= */
+.auth-section-card {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  backdrop-filter: blur(10px);
+  margin-bottom: 0.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.auth-section-card:hover {
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.auth-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #34d399;
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.auth-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 580px) {
+  .auth-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Custom Select styling */
+.auth-select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 0.925rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 1.15rem;
+  transition: all 0.25s ease;
+}
+
+.auth-select:focus {
+  border-color: #10b981;
+  background-color: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.auth-select option {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* Password Strength Meter Box */
+.auth-pwd-meter-box {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+}
+
+/* Telegram GIS wrapper */
+.social-btn--gis-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn--gis-wrap .social-btn--gis-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.social-btn--gis-overlay iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.social-btn--gis-overlay > div {
+  width: 100% !important;
+  height: 100% !important;
+}

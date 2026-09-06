@@ -1,0 +1,199 @@
+/* ============================================================
+   FRESHMART TERMS & PRIVACY — Handcrafted Dark Design
+   Emil Kowalski Tactile Polish & Custom Easings
+   ============================================================ */
+
+.tp-page {
+  background: #232F3F;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 60px 0 100px;
+  font-family: var(--font-sans, "Montserrat", "Kantumruy Pro", sans-serif);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(119, 188, 31, 0.05) 0%, transparent 60%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 700px, 32px 32px;
+}
+
+.tp-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ── */
+.tp-hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 44px;
+}
+
+.tp-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #77BC1F;
+  background: rgba(119, 188, 31, 0.08);
+  border: 1px solid rgba(119, 188, 31, 0.25);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.tp-3d-eyebrow-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.tp-hero-title {
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.tp-hero-sub {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 600px;
+  margin: 0 0 16px;
+}
+
+.tp-last-updated {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #FF9900;
+  background: rgba(255, 153, 0, 0.1);
+  border: 1px solid rgba(255, 153, 0, 0.25);
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+/* ── Tabs ── */
+.tp-tabs-bar {
+  display: flex;
+  gap: 10px;
+  background: rgba(18, 26, 36, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px;
+  border-radius: 100px;
+  backdrop-filter: blur(12px);
+}
+
+.tp-tab-pill {
+  background: transparent;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tp-tab-pill:hover {
+  color: #ffffff;
+}
+
+.tp-tab-pill:active {
+  transform: scale(0.97);
+}
+
+.tp-tab-pill--active {
+  background: #77BC1F;
+  color: #1A232F;
+  box-shadow: 0 4px 14px rgba(119, 188, 31, 0.35);
+}
+
+/* ── Cards List ── */
+.tp-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tp-card {
+  background: rgba(18, 26, 36, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 30px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  backdrop-filter: blur(12px);
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.tp-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(119, 188, 31, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tp-card-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tp-card-3d-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.tp-card-copy {
+  flex: 1;
+}
+
+.tp-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.tp-card-text {
+  font-size: 0.925rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .tp-card {
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .tp-tabs-bar {
+    width: 100%;
+  }
+
+  .tp-tab-pill {
+    flex: 1;
+    text-align: center;
+    padding: 10px 14px;
+  }
+}

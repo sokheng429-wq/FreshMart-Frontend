@@ -1,0 +1,354 @@
+/* ============================================================
+   FRESHMART PRODUCT DETAIL — Brand Palette Design
+   Primary Green: #77BC1F | Accent Orange: #FF9900 | Navy: #232F3F
+   NO Black Backgrounds
+   ============================================================ */
+
+.pd-page {
+  width: 100%;
+  background: #232F3F;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 32px 0 100px;
+  font-family: var(--font-sans, "Montserrat", "Kantumruy Pro", sans-serif);
+}
+
+.pd-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Breadcrumb */
+.pd-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pd-breadcrumb a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.pd-breadcrumb a:hover {
+  color: #77BC1F;
+}
+
+.pd-breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.pd-breadcrumb-current {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ── Main Showcase Grid ── */
+.pd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Gallery */
+.pd-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pd-main-img-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 1 / 1;
+}
+
+.pd-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pd-badge-pill {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #77BC1F;
+  color: #1A232F;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(119, 188, 31, 0.35);
+}
+
+.pd-thumb-rail {
+  display: flex;
+  gap: 12px;
+}
+
+.pd-thumb-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1E2836;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 140ms ease;
+}
+
+.pd-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-thumb-btn--active {
+  border-color: #77BC1F;
+}
+
+/* Details Side */
+.pd-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pd-category-tag {
+  font-size: 0.775rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #77BC1F;
+}
+
+.pd-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Ratings */
+.pd-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pd-stars {
+  color: #FFB300;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.pd-sold-count {
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Price Box */
+.pd-price-box {
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.pd-price-current {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #77BC1F;
+}
+
+.pd-price-old {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+.pd-unit-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: auto;
+}
+
+.pd-description {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Actions Row */
+.pd-actions-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pd-stepper {
+  display: flex;
+  align-items: center;
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  padding: 4px;
+}
+
+.pd-step-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pd-step-val {
+  width: 40px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.pd-btn-add {
+  flex: 1;
+  min-width: 160px;
+  background: #77BC1F;
+  color: #1A232F;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(119, 188, 31, 0.35);
+  transition: all 140ms ease;
+}
+
+.pd-btn-add:hover {
+  background: #88D622;
+  transform: translateY(-2px);
+}
+
+.pd-btn-buy {
+  background: #FF9900;
+  color: #1A232F;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.pd-btn-buy:hover {
+  background: #FFA726;
+  transform: translateY(-2px);
+}
+
+/* Guarantees Box */
+.pd-guarantees {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
+
+.pd-guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.pd-guarantee-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ── Tabs Section ── */
+.pd-tabs-section {
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 32px;
+}
+
+.pd-tabs-header {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.pd-tab-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 6px 12px;
+  position: relative;
+  transition: color 140ms ease;
+}
+
+.pd-tab-btn--active {
+  color: #77BC1F;
+}
+
+.pd-tab-content {
+  font-size: 0.925rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Related Grid ── */
+.pd-related-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pd-related-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .pd-grid {
+    grid-template-columns: 1fr;
+  }
+}

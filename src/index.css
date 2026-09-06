@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+
+  .scrollbar-track-slate-900 {
+    scrollbar-color: #334155 #0f172a;
+  }
+}
+
+@theme {
+  /* Navy — from the FreshMart logo */
+  --color-navy-900: #1A232F;
+  --color-navy-800: #232F3F;
+  --color-navy-700: #34455c;
+  --color-navy-600: #4a5d78;
+
+  /* Brand green — from the "GROCERIES" wordmark */
+  --color-brand-600: #5a9e1a;
+  --color-brand-500: #77BC1F;
+  --color-brand-400: #8fd13a;
+  --color-brand-100: #e6f3d6;
+
+  /* Accent orange — from the apostrophe */
+  --color-accent-600: #cc7700;
+  --color-accent-500: #FF9900;
+  --color-accent-400: #ffad33;
+
+  /* FreshMart Official Brand Fonts */
+  --font-display: "Montserrat";
+  --font-sans: "Montserrat", "Kantumruy Pro";
+}
+
+/* ============================================================
+   UNIFIED DESIGN TOKENS — single source of truth for all pages.
+   Every component/page CSS should reference these variables.
+   ============================================================ */
+:root {
+  /* Brand colors */
+  --brand: #77BC1F;
+  --brand-light: #8fd13a;
+  --brand-dark: #5a9e1a;
+  --brand-tint: rgba(35, 47, 63, 0.12);
+  --brand-tint-soft: rgba(35, 47, 63, 0.08);
+  --brand-border: rgba(35, 47, 63, 0.2);
+  --brand-border-strong: rgba(35, 47, 63, 0.3);
+
+  --accent: #FF9900;
+  --accent-light: #ffad33;
+  --accent-dark: #cc7700;
+  --accent-tint: rgba(255, 153, 0, 0.12);
+  --accent-tint-soft: rgba(255, 153, 0, 0.08);
+  --accent-border: rgba(255, 153, 0, 0.2);
+  --accent-border-strong: rgba(255, 153, 0, 0.3);
+
+  --navy: #232F3F;
+  --navy-dark: #1A232F;
+
+  /* Navy-based surface palette — matches Header/Header2 */
+  --surface-0: #232F3F;
+  --surface-1: #2d3f50;
+  --surface-2: #2d3f50;
+  --surface-3: #34455c;
+  --surface-4: #4a5d78;
+
+  /* Text */
+  --text-strong: #ffffff;
+  --text-body: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-faint: rgba(255, 255, 255, 0.35);
+  --text-dim: rgba(255, 255, 255, 0.25);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+
+  /* Status */
+  --danger: #e53935;
+  --danger-tint: rgba(229, 57, 53, 0.12);
+  --danger-border: rgba(229, 57, 53, 0.25);
+  --success: #77BC1F;
+  --info: #1976d2;
+  --info-tint: rgba(25, 118, 210, 0.12);
+
+  /* Font stack */
+  --font-family: "Montserrat", "Kantumruy Pro", sans-serif;
+}
+
+body {
+  background: var(--navy);
+  color: var(--text-strong);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================================
+   GLOBAL GREEN-DARK THEME — applied to all page roots.
+   Page-level CSS overrides specific sections as needed.
+   ============================================================ */
+.home-page,
+.popular-products,
+.member-page,
+.career-page,
+.about-page,
+.contact-page,
+.cart-page,
+.promotion-page,
+.faq-page,
+.shipping-page,
+.terms-page,
+.pd-page,
+.cd-page,
+.md-page,
+.partners-page {
+  background: var(--surface-0);
+  color: var(--text-strong);
+}
+
+/* Section & card surfaces */
+.home-hero,
+.member-hero,
+.career-hero,
+.about-hero,
+.contact-hero,
+.apply-hero {
+  background: radial-gradient(circle at 70% 30%, var(--brand-tint) 0%, var(--surface-0) 100%);
+}
+
+.home-categories,
+.home-story,
+.home-mission,
+.home-values,
+.home-numbers,
+.home-journey {
+  background: var(--surface-1);
+  border-top-color: var(--brand-border);
+  border-bottom-color: var(--brand-border);
+}
+
+/* Headings — green tint */
+.home-section-title,
+.home-hero-title,
+.home-category-name,
+.home-value-title,
+.home-timeline-title,
+.home-cta-title,
+.member-hero-title,
+.member-card-name,
+.member-cta-title,
+.career-hero-title,
+.career-section-title,
+.career-card-title,
+.benefit-label,
+.about-hero-title,
+.about-section-title,
+.about-timeline-title,
+.about-value-title,
+.contact-hero-title,
+.contact-info-value,
+.contact-form-title,
+.faq-q,
+.shipping-tier-name,
+.shipping-step-title,
+.shipping-zone-area,
+.tp-hero-title,
+.tp-card-title,
+.pd-section-title,
+.cd-section-title,
+.md-section-title,
+.partners-title,
+.partners-cta-title,
+.promotion .promo-title,
+.promotion .promo-title-text {
+  color: var(--brand);
+}
+
+/* Body text */
+.home-section-body,
+.home-hero-sub,
+.home-value-desc,
+.home-number-lbl,
+.home-timeline-desc,
+.home-cta-sub,
+.member-hero-sub,
+.member-hero-count-label,
+.member-card-bio,
+.member-cta-text,
+.career-hero-subtitle,
+.career-stat-label,
+.career-section-sub,
+.career-meta-item,
+.career-empty,
+.about-hero-sub,
+.about-section-sub,
+.about-mission-text,
+.about-timeline-text,
+.about-stat-label,
+.about-value-desc,
+.contact-hero-sub,
+.contact-info-label,
+.promotion .promo-desc,
+.faq-a,
+.shipping-tier-time,
+.shipping-step-text,
+.shipping-section-sub,
+.shipping-zone-districts,
+.tp-hero-subtitle,
+.tp-updated,
+.tp-card-text,
+.tp-footnote p,
+.pd-description,
+.cd-text,
+.md-step-desc {
+  color: var(--text-body);
+}
+
+/* Cards — dark green with green border glow */
+.home-category-card,
+.home-value-card,
+.home-number-card,
+.home-timeline-card,
+.home-mission-card,
+.home-hero-tag,
+.member-card,
+.career-hero-stats,
+.benefits-grid,
+.career-card,
+.about-mission-card,
+.about-timeline-card,
+.about-stat-card,
+.about-value-card,
+.contact-info-card,
+.contact-faq,
+.contact-form-card,
+.contact-map-wrap,
+.contact-social-chip,
+.faq-search-wrap,
+.faq-cat-tab,
+.faq-card,
+.shipping-tier-card,
+.shipping-zone-card,
+.tp-card,
+.tp-footnote,
+.pd-related-card,
+.cd-sidebar-card,
+.md-tier-card,
+.partner-card,
+.promotion .promo-card,
+.cart-prod-card,
+.cart-item,
+.cart-summary,
+.cart-empty,
+.apply-form-card,
+.apply-perks-card,
+.product-card {
+  background: var(--surface-2);
+  border-color: var(--brand-border);
+  color: var(--text-strong);
+  box-shadow: 0 4px 20px var(--brand-tint-soft);
+}
+
+/* CTA cards */
+.home-cta-card {
+  background: linear-gradient(145deg, var(--surface-3) 0%, var(--surface-2) 100%);
+  border-color: var(--brand);
+}
+
+/* Filter / tab buttons */
+.member-filter-chip,
+.career-filter-btn,
+.faq-cat-tab,
+.tp-tab,
+.login-tab,
+.popular-filter-tab {
+  background: var(--surface-2);
+  color: var(--text-body);
+  border-color: var(--brand-border);
+}
+
+.member-filter-chip--active,
+.career-filter-btn--active,
+.faq-cat-tab--active,
+.tp-tab.active,
+.login-tab--active,
+.popular-filter-tab--active {
+  background: var(--brand);
+  color: var(--navy-dark);
+  border-color: var(--brand);
+}
+
+/* Auth pages */
+.auth {
+  background: var(--surface-0);
+}
+
+.auth-panel {
+  background: linear-gradient(160deg, var(--surface-3) 0%, var(--surface-2) 60%, var(--surface-1) 100%);
+  color: var(--text-strong);
+}
+
+.auth-panel-title,
+.auth-title,
+.field label,
+.auth-panel-subtitle,
+.auth-subtitle,
+.auth-footer-note,
+.checkbox-label {
+  color: var(--text-strong);
+}
+
+.auth-form-side {
+  background: var(--surface-2);
+}
+
+.auth-panel-card {
+  background: var(--brand-tint-soft);
+  border-color: var(--brand-border);
+}
+
+.auth-panel-card p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.field input {
+  background: var(--surface-1);
+  color: var(--text-strong);
+  border-color: var(--brand-border-strong);
+}
+
+.field input::placeholder {
+  color: var(--text-faint);
+}
+
+.login-tabs,
+.popular-filter-tabs {
+  background: var(--surface-2);
+}
+
+/* Cart page */
+.cart-hero-bg,
+.apply-hero {
+  background: linear-gradient(135deg, var(--surface-3) 0%, var(--surface-4) 40%, var(--surface-1) 100%);
+}
+
+.cart-section-title,
+.cart-prod-name,
+.cart-item-name,
+.cart-item-line-total,
+.cart-summary-title,
+.cart-summary-row--total,
+.cart-qty span,
+.cart-empty-text {
+  color: var(--text-strong);
+}
+
+.cart-prod-price,
+.cart-item-price,
+.cart-summary-row,
+.cart-empty-hint,
+.cart-count {
+  color: var(--text-body);
+}
+
+.cart-prod-img-wrap,
+.cart-item-img-wrap,
+.cart-qty,
+.cart-qty button {
+  background: var(--surface-2);
+  border-color: var(--brand-border-strong);
+  color: var(--text-strong);
+}
+
+/* Copy code button */
+.promotion .promo-copy-code {
+  background: var(--surface-2);
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* Contact form fields */
+.cf-field label {
+  color: var(--text-strong);
+}
+
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+  background: var(--surface-1);
+  color: var(--text-strong);
+  border-color: var(--brand-border-strong);
+}
+
+.cf-field input::placeholder,
+.cf-field textarea::placeholder {
+  color: var(--text-faint);
+}
+
+/* Apply Now */
+.apply-form-title,
+.apply-field label,
+.apply-perks-title,
+.apply-perk-label,
+.apply-success-title {
+  color: var(--text-strong);
+}
+
+.apply-form-sub,
+.apply-dropzone-hint,
+.apply-telegram-hint,
+.apply-success-text {
+  color: var(--text-body);
+}
+
+.apply-field input,
+.apply-field select,
+.apply-field textarea,
+.apply-dropzone,
+.apply-perk-item {
+  background: var(--surface-1);
+  color: var(--text-strong);
+  border-color: var(--brand-border-strong);
+}
+
+.apply-field input::placeholder,
+.apply-field textarea::placeholder {
+  color: var(--text-faint);
+}
+
+/* Popular Products */
+.popular-title,
+.product-name,
+.product-price {
+  color: var(--text-strong);
+}
+
+.popular-search {
+  background: var(--surface-2);
+  color: var(--text-strong);
+  border-color: var(--brand-border-strong);
+}
+
+.popular-search::placeholder {
+  color: var(--text-faint);
+}
+
+.popular-sort {
+  background: var(--surface-2);
+  color: var(--text-strong);
+  border-color: var(--brand-border-strong);
+}
+
+/* Footer */
+.footer {
+  background: var(--surface-1);
+  color: var(--text-body);
+  border-top-color: var(--brand);
+}
+
+.footer-tagline,
+.footer-link,
+.footer-contact-item,
+.footer-copyright,
+.footer-link-small {
+  color: var(--text-muted);
+}
+
+.footer-link:hover,
+.footer-link-small:hover {
+  color: var(--brand);
+}
+
+.social-icon {
+  background: var(--brand-tint-soft);
+  border-color: var(--brand-border);
+  color: var(--text-strong);
+}
+
+/* ===== Profile Page ===== */
+.profile-page {
+  background: var(--surface-0);
+  color: var(--text-strong);
+}
+
+.profile-account-bar,
+.profile-sidebar,
+.profile-card,
+.profile-collapse-row {
+  background: var(--surface-2);
+  border-color: var(--brand-border);
+  color: var(--text-strong);
+}
+
+.profile-account-name,
+.profile-nav-item,
+.profile-field-value,
+.profile-field-input,
+.profile-collapse-row {
+  color: var(--text-strong);
+}
+
+.profile-field-row {
+  border-bottom-color: var(--brand-border);
+}
+
+.profile-field-label,
+.profile-collapse-label {
+  color: var(--text-muted);
+}
+
+.profile-field-input {
+  background: var(--surface-1);
+  border-color: var(--brand-border-strong);
+}
+
+.profile-nav-item:hover {
+  background: var(--brand-tint-soft);
+}
+
+.profile-nav-item.active {
+  background: var(--brand);
+  color: var(--navy-dark);
+}
+
+.profile-danger-zone {
+  background: var(--danger-tint);
+  border-color: var(--danger-border);
+}
+
+.profile-danger-title {
+  color: var(--danger);
+}
+
+.profile-danger-desc {
+  color: var(--text-muted);
+}
+
+.profile-danger-btn {
+  background: var(--danger);
+  color: var(--text-strong);
+  border: none;
+}
+
+.profile-danger-btn:hover {
+  background: #c62828;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Reusable brand primitives */
+.btn-brand {
+  @apply bg-brand-500 text-white font-semibold rounded-full px-5 py-2
+         hover:bg-brand-600 transition-colors;
+}
+
+.btn-outline {
+  @apply border border-white/20 text-white font-medium rounded-full px-4 py-1.5
+         hover:border-brand-500 hover:text-brand-500 transition-colors;
+}
+
+.text-accent-dot {
+  @apply text-accent-500;
+}

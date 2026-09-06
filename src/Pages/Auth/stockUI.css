@@ -1,0 +1,169 @@
+/* ===== STOCK UI - PROFESSIONAL RESPONSIVE DESIGN SYSTEM ===== */
+
+/* Smooth custom scrollbars */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Sidebar scrollable container with isolated mousewheel and smooth scroll */
+.sidebar-scroll-container {
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.sidebar-scroll-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-scroll-container::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.sidebar-scroll-container::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+.sidebar-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #7EB631;
+}
+
+/* Accessible focus rings */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #7EB631;
+  outline-offset: 2px;
+}
+
+/* Modal overlay & animations */
+.modal-overlay {
+  background: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-panel {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Touch friendly responsive table wrapper */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table scroll indicators */
+.table-scroll-container {
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Button micro-interactions */
+.primary-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primary-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.primary-btn:active {
+  transform: scale(0.98);
+}
+
+.primary-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Ghost button */
+.ghost-btn {
+  transition: all 0.2s ease;
+}
+
+.ghost-btn:hover {
+  background-color: rgba(51, 65, 85, 0.6);
+  color: #fff;
+  border-color: #64748b;
+}
+
+.ghost-btn:active {
+  transform: scale(0.98);
+}
+
+/* Interactive Data Table Row */
+.data-table-row {
+  transition: background-color 0.15s ease;
+}
+
+.data-table-row:hover {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+/* Pill badge */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  transition: transform 0.15s ease;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .section-shell-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

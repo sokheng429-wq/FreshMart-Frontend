@@ -1,0 +1,63 @@
+/* ===== TRANSACTION SECTION - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles — green accent for section/layout pages */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #77BC1F;
+  outline-offset: 2px;
+}
+
+/* Transaction list row */
+.transaction-row {
+  transition: background-color 0.1s;
+}
+
+/* Document code badge */
+.doc-code-badge {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* Status pill */
+.transaction-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Action button group */
+.transaction-actions {
+  transition: opacity 0.15s;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .transaction-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

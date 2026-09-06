@@ -1,0 +1,35 @@
+.page-transition {
+  flex: 1;
+}
+
+/* Enter — slide up + fade in */
+.page-transition--fadeIn {
+  animation: page-enter 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Exit — slide down + fade out */
+.page-transition--fadeOut {
+  animation: page-exit 0.25s cubic-bezier(0.55, 0.06, 0.68, 0.19) both;
+}
+
+@keyframes page-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes page-exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.99);
+  }
+}

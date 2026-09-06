@@ -1,0 +1,228 @@
+/* === Header2 - FreshMart navbar === */
+
+/* Header shell */
+.h2-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--navy);
+  border-bottom: 2px solid var(--accent);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.h2-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.h2-logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Desktop nav */
+.h2-nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.h2-nav-link {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-body);
+  text-decoration: none;
+  padding: 0.5rem 0.875rem;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.h2-nav-link:hover {
+  color: var(--brand-light);
+  background: var(--brand-tint-soft);
+}
+
+/* Active state — orange underline bar */
+.h2-nav-link--active {
+  color: var(--brand-light);
+  font-weight: 600;
+}
+
+.h2-nav-link--active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Right-side controls */
+.h2-controls-desktop {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Brand button (Register) */
+.h2-btn-brand {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--navy-dark);
+  background: var(--brand);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.h2-btn-brand:hover {
+  background: var(--brand-light);
+}
+
+/* Cart icon button */
+.h2-nav-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.h2-nav-cart:hover {
+  color: var(--brand-light);
+  background: var(--brand-tint-soft);
+}
+
+.h2-nav-cart--active {
+  color: var(--brand-light);
+}
+
+.h2-nav-cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Mobile hamburger */
+.h2-mobile-toggle {
+  display: inline-flex;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile menu panel */
+.h2-mobile-menu {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--navy);
+  padding: 0 1rem 1rem;
+}
+
+.h2-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 0.5rem;
+}
+
+.h2-nav-link-mobile {
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.h2-nav-link-mobile:hover {
+  color: var(--brand-light);
+  background: var(--brand-tint-soft);
+}
+
+.h2-nav-link-mobile--active {
+  color: var(--brand-light);
+  font-weight: 600;
+  background: var(--brand-tint);
+  border-left: 3px solid var(--accent);
+}
+
+.h2-controls-mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.h2-btn-brand-mobile {
+  margin-left: auto;
+}
+
+/* Breakpoint: show desktop nav / hide mobile toggle from 980px up */
+@media (min-width: 980px) {
+  .h2-nav-desktop {
+    display: flex;
+  }
+
+  .h2-controls-desktop {
+    display: flex;
+  }
+
+  .h2-mobile-toggle {
+    display: none;
+  }
+
+  .h2-mobile-menu {
+    display: none;
+  }
+}
+
+/* Logged-in user's name in the header */
+.h2-nav-user-name {
+  font-weight: 600;
+  color: var(--brand);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Admin-only "Manage" link */
+.h2-nav-admin-link {
+  font-weight: 700;
+  color: var(--brand);
+}

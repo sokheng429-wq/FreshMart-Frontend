@@ -1,0 +1,1211 @@
+// =========================================================================
+// B'Groceries ERP & Supermarket Management Hub - Database Schema (DBML)
+// Official DBML Documentation: https://dbml.dbdiagram.io/docs
+// Ready to copy & paste into https://dbdiagram.io
+// Database Target: PostgreSQL / Spring Boot JPA Architecture
+// =========================================================================
+
+Table activity_logs {
+  id bigint [primary key, increment]
+  username varchar [not null]
+  user_full_name varchar
+  action_type varchar [not null]
+  entity_type varchar [not null]
+  entity_id bigint
+  entity_name varchar
+  description varchar [not null]
+  icon varchar
+  ip_address varchar
+  created_at timestamp [not null]
+}
+
+Table job {
+  id bigint [primary key, increment]
+  title varchar [not null]
+  department varchar [not null]
+  location varchar [not null]
+  type varchar [not null]
+  salary varchar
+  description varchar
+  requirements varchar
+  benefits varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table job_application {
+  id bigint [primary key, increment]
+  job_id bigint [not null]
+  full_name varchar [not null]
+  email varchar [not null]
+  phone varchar [not null]
+  linkedin_url varchar
+  cover_letter varchar
+  resume_name varchar
+  resume_data varchar
+  resume_content_type varchar
+  created_at timestamp [not null]
+}
+
+Table member {
+  id bigint [primary key, increment]
+  member_code varchar [not null, unique]
+  full_name varchar [not null]
+  position varchar
+  rank integer
+  department varchar
+  category varchar
+  photo_url varchar
+  member_detail bigint
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table member_detail {
+  id bigint [primary key, increment]
+  member bigint [not null, unique]
+  phone_number varchar
+  email varchar
+  address varchar
+  date_of_birth date
+  gender varchar
+  emergency_contact varchar
+  start_date date
+  note varchar
+  nationality varchar
+}
+
+Table login_sessions {
+  id bigint [primary key, increment]
+  token varchar [not null, unique]
+  telegram_user_id bigint
+  telegram_username varchar
+  telegram_first_name varchar
+  jwt_token varchar
+  expires_at timestamp [not null]
+  created_at timestamp [not null]
+}
+
+Table otp_codes {
+  id bigint [primary key, increment]
+  phone_number varchar [not null]
+  code_hash varchar [not null]
+  purpose varchar [not null]
+  expires_at timestamp [not null]
+  created_at timestamp [not null]
+}
+
+Table password_reset_otps {
+  id bigint [primary key, increment]
+  email varchar [not null]
+  code_hash varchar [not null]
+  expires_at timestamp [not null]
+  created_at timestamp [not null]
+}
+
+Table purchase_orders {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  date date
+  require_date date
+  purchase_person varchar
+  supplier varchar
+  supplier_id bigint
+  phone varchar
+  reference varchar
+  voided_date date
+  so_code varchar
+  username varchar
+  outlet varchar
+  payment_term varchar
+  shipment_method varchar
+  template_name varchar
+  note varchar
+  billing_address varchar
+  shipping_address varchar
+  carrier varchar
+  tracking_number varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table purchase_order_items {
+  id bigint [primary key, increment]
+  purchase_order_id bigint [not null]
+  product_id bigint
+  item_code varchar
+  barcode varchar
+  description varchar
+  description2 varchar
+  product_group varchar
+  uom varchar
+}
+
+Table receipt_pos {
+  id bigint [primary key, increment]
+  receipt_po_code varchar [not null, unique]
+  po_code varchar
+  date date
+  supplier varchar
+  supplier_id bigint
+  outlet varchar
+  shipment varchar
+  username varchar
+  reference varchar
+  note varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table receipt_po_items {
+  id bigint [primary key, increment]
+  receipt_po_id bigint [not null]
+  product_id bigint
+  code varchar
+  barcode varchar
+  description varchar
+  uom varchar
+}
+
+Table requisitions {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  date date
+  require_date date
+  template_name varchar
+  requisition_type varchar
+  reference varchar
+  reference_code varchar
+  user_name varchar
+  note varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table requisition_items {
+  id bigint [primary key, increment]
+  requisition_id bigint [not null]
+  product_id bigint
+  code varchar
+  barcode varchar
+  description varchar
+  uom varchar
+}
+
+Table return_receipt_pos {
+  id bigint [primary key, increment]
+  return_po_code varchar [not null, unique]
+  po_code varchar
+  receipt_po_code varchar
+  date date
+  supplier varchar
+  supplier_id bigint
+  outlet varchar
+  username varchar
+  reason varchar
+  reference varchar
+  note varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table return_receipt_po_items {
+  id bigint [primary key, increment]
+  return_receipt_po_id bigint [not null]
+  product_id bigint
+  code varchar
+  barcode varchar
+  description varchar
+  uom varchar
+}
+
+Table aging_invoices {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  invoice_date date [not null]
+  due_date date
+  customer varchar [not null]
+  contact_name varchar
+  phone varchar
+  salesperson varchar
+  customer_group varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table ar_collections {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  payment_date timestamp [not null]
+  customer_id bigint
+  customer varchar [not null]
+  contact varchar
+  note varchar [not null]
+  authorization_note varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table ar_collection_invoices {
+  id bigint [primary key, increment]
+  ar_collection_id bigint [not null]
+  inv_code varchar
+  inv_date timestamp
+  due_date timestamp
+}
+
+Table consignments {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  consignment_date timestamp [not null]
+  delivery_date timestamp
+  customer_id bigint
+  customer_name varchar
+  customer_phone varchar
+  customer_address varchar
+  salesperson varchar
+  payment_term varchar
+  outlet varchar
+  template_name varchar
+  reference varchar
+  username varchar
+  note varchar
+  billing_name varchar
+  billing_phone varchar
+  billing_email varchar
+  billing_address varchar
+  shipping_recipient varchar
+  shipping_phone varchar
+  shipping_address varchar
+  shipping_courier varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table consignment_items {
+  id bigint [primary key, increment]
+  consignment_id bigint [not null]
+  product_id bigint
+  product_code varchar
+  barcode varchar
+  description varchar [not null]
+  note varchar
+}
+
+Table customer {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  customer_name varchar [not null]
+  second_language varchar
+  customer_group varchar
+  sale_employee varchar
+  tax_no varchar
+  payment_term varchar
+  terms_and_condition varchar
+  price_book varchar
+  quote_template varchar
+  so_template varchar
+  invoice_template varchar
+  do_template varchar
+  credit_limit numeric(14,2)
+  current_balance numeric(14,2)
+  credit_deposit numeric(14,2)
+  balance numeric(14,2)
+  contact_first_name varchar
+  contact_last_name varchar
+  contact_gender varchar
+  contact_dob date
+  contact_phone varchar
+  contact_mobile varchar
+  contact_email varchar
+  contact_website varchar
+  address_description varchar
+  address_second_language varchar
+  address_line1 varchar
+  address_line2 varchar
+  address_city varchar
+  address_state varchar
+  address_country varchar
+  address_phone varchar
+  address_phone_ext varchar
+  address_fax varchar
+  address_fax_ext varchar
+  address_email varchar
+  address_website varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table customer_deposits {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  deposit_date timestamp [not null]
+  customer_id bigint
+  customer_name varchar [not null]
+  contact varchar
+  reference varchar
+  note varchar [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table customer_group {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  second_language varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table customer_refunds {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  payment_date timestamp [not null]
+  customer_id bigint
+  partner varchar [not null]
+  contact varchar
+  phone varchar
+  note varchar [not null]
+  authorization_note varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table customer_refund_invoices {
+  id bigint [primary key, increment]
+  customer_refund_id bigint [not null]
+  code varchar
+  date timestamp
+}
+
+Table payment_terms {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  description varchar [not null]
+  second_language varchar
+  note varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table quotation {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  quotation_date timestamp [not null]
+  expired_date timestamp
+  customer_id bigint
+  customer_name varchar
+  customer_phone varchar
+  customer_address varchar
+  salesperson varchar
+  payment_term varchar
+  outlet varchar
+  template_name varchar
+  reference varchar
+  username varchar
+  note varchar
+  billing_name varchar
+  billing_phone varchar
+  billing_email varchar
+  billing_address varchar
+  billing_city varchar
+  billing_tax_no varchar
+  shipping_name varchar
+  shipping_phone varchar
+  shipping_address varchar
+  shipping_city varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table quotation_item {
+  id bigint [primary key, increment]
+  quotation_id bigint [not null]
+  product_id bigint
+  product_code varchar
+  barcode varchar
+  description varchar [not null]
+  note varchar
+}
+
+Table return_invoice {
+  id bigint [primary key, increment]
+  invoice_code varchar [not null, unique]
+  apply_to_invoice varchar
+  return_date date [not null]
+  customer_id bigint
+  customer_name varchar
+  customer_phone varchar
+  customer_address varchar
+  tax_code varchar
+  payment_term varchar
+  salesperson varchar
+  outlet varchar
+  user_name varchar
+  so_code varchar
+  reason varchar [not null]
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table return_invoice_item {
+  id bigint [primary key, increment]
+  return_invoice_id bigint [not null]
+  product_id bigint
+  product_code varchar
+  description varchar [not null]
+  uom varchar
+}
+
+Table return_shipment {
+  id bigint [primary key, increment]
+  return_ship_code varchar [not null, unique]
+  so_code varchar
+  date timestamp [not null]
+  customer varchar [not null]
+  delivery_person varchar
+  outlet varchar [not null]
+  username varchar
+  created_at timestamp
+}
+
+Table sale_invoice {
+  id bigint [primary key, increment]
+  invoice_code varchar [not null, unique]
+  invoice_date date [not null]
+  due_date date
+  so_code varchar
+  customer_id bigint
+  customer_name varchar
+  customer_phone varchar
+  customer_address varchar
+  salesperson varchar
+  payment_term varchar
+  outlet varchar
+  location varchar
+  template_name varchar
+  barcode varchar
+  username varchar
+  note varchar
+  payment_type varchar
+  billing_name varchar
+  billing_phone varchar
+  billing_email varchar
+  billing_address varchar
+  billing_city varchar
+  billing_tax_no varchar
+  shipping_recipient varchar
+  shipping_phone varchar
+  shipping_address varchar
+  shipping_method varchar
+  tracking_no varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table sale_invoice_item {
+  id bigint [primary key, increment]
+  sale_invoice_id bigint [not null]
+  product_id bigint
+  product_code varchar
+  description varchar [not null]
+  uom varchar
+}
+
+Table sale_invoice_payment {
+  id bigint [primary key, increment]
+  sale_invoice_id bigint [not null]
+  payment_date timestamp [not null]
+  reference varchar [not null]
+  note varchar
+  received_by varchar
+  created_at timestamp [not null]
+}
+
+Table sale_order {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  quote_code varchar
+  po_code varchar
+  order_date timestamp [not null]
+  delivery_date timestamp
+  customer_id bigint
+  customer_name varchar
+  customer_phone varchar
+  salesperson varchar
+  payment_term varchar
+  outlet varchar
+  template_name varchar
+  reference varchar
+  username varchar
+  note varchar
+  related_purchase_order varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table sale_order_item {
+  id bigint [primary key, increment]
+  sale_order_id bigint [not null]
+  product_id bigint
+  product_code varchar
+  barcode varchar
+  description varchar [not null]
+}
+
+Table sale_promotion {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  description varchar [not null]
+  second_language varchar
+  price_book varchar
+  target_scope_id bigint
+  target_scope_name varchar
+  start_date date [not null]
+  end_date date
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table shipment {
+  id bigint [primary key, increment]
+  ship_code varchar [not null, unique]
+  date timestamp [not null]
+  customer varchar [not null]
+  phone varchar
+  delivery_person varchar
+  salesperson varchar [not null]
+  reference varchar
+  username varchar
+  outlet varchar
+  carrier varchar
+  destination varchar
+  created_at timestamp
+}
+
+Table web_order {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  order_date timestamp [not null]
+  delivery_date timestamp
+  salesperson varchar
+  customer_name varchar [not null]
+  phone varchar
+  reference varchar [not null]
+  username varchar
+  outlet varchar
+  channel varchar
+  shipping_address varchar
+  created_at timestamp
+}
+
+Table web_order_item {
+  id bigint [primary key, increment]
+  web_order_id bigint [not null]
+  product_id bigint
+  product_code varchar
+  description varchar [not null]
+}
+
+Table adjustment_document {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  doc_date date [not null]
+  adjustment_type varchar
+  reference varchar
+  adjusted_by varchar
+  outlet varchar
+  note varchar
+  total_diff numeric(14,2)
+  total_cost numeric(14,2)
+  status varchar [not null]
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table adjustment_line {
+  id bigint [primary key, increment]
+  document_id bigint [not null]
+  product_id bigint [not null]
+  name_snapshot varchar
+  counted_qty numeric(14,2) [not null]
+  qty_before numeric(14,2)
+  qty_diff numeric(14,2)
+  unit_cost numeric(14,2)
+  uom varchar
+}
+
+Table attribute {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  name_kh varchar
+  type varchar
+  values_text varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table attribute_change_log {
+  id bigint [primary key, increment]
+  product_id bigint [not null]
+  attribute_name varchar [not null]
+  old_value varchar
+  new_value varchar [not null]
+  reason varchar
+  changed_by varchar
+  changed_at timestamp [not null]
+  product_name varchar
+}
+
+Table brand {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  name_kh varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table category {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  name_kh varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table cost_change_log {
+  id bigint [primary key, increment]
+  product_id bigint [not null]
+  old_cost numeric(14,2)
+  new_cost numeric(14,2)
+  adjustment_type varchar
+  adjustment_value numeric(14,2)
+  reason varchar
+  changed_by varchar
+  changed_at timestamp [not null]
+  product_name varchar
+}
+
+Table issue_document {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  doc_date date [not null]
+  issue_type varchar
+  reference varchar
+  issued_by varchar
+  outlet varchar
+  note varchar
+  total_cost numeric(14,2)
+  status varchar [not null]
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table issue_line {
+  id bigint [primary key, increment]
+  document_id bigint [not null]
+  product_id bigint [not null]
+  name_snapshot varchar
+  qty numeric(14,2) [not null]
+  unit_cost numeric(14,2)
+  uom varchar
+  qty_before numeric(14,2)
+  qty_after numeric(14,2)
+}
+
+Table price_history {
+  id bigint [primary key, increment]
+  product_id bigint [not null]
+  old_price numeric(14,2)
+  new_price numeric(14,2)
+  change_type varchar
+  markup_percent numeric(14,2)
+  reason varchar
+  changed_by varchar
+  changed_at timestamp [not null]
+  product_name varchar
+}
+
+Table product {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  bar_code varchar
+  name varchar [not null]
+  name_kh varchar
+  description varchar
+  product_group varchar
+  category varchar
+  on_hand numeric(14,2)
+  uom varchar
+  base_price numeric(14,2)
+  average_cost numeric(14,2)
+  standard_cost numeric(14,2)
+  create_date date
+  country varchar
+  supplier varchar
+  part_number varchar
+  brand varchar
+  on_po numeric(14,2)
+  on_so numeric(14,2)
+  available_stock numeric(14,2)
+  serial varchar
+  expiry_date date
+  tax numeric(14,2)
+  image_url varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table product_group {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  name_kh varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table product_scale {
+  id bigint [primary key, increment]
+  product_id bigint [not null]
+  plu_code varchar [unique]
+  scale_barcode varchar
+  uom varchar
+  tare_weight numeric(14,2)
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table product_supplier_link {
+  id bigint [primary key, increment]
+  product_id bigint [not null]
+  supplier_id bigint [not null]
+  vendor_part_number varchar
+  contracted_cost numeric(14,2)
+  lead_time_days integer
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table receive_document {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  doc_date date [not null]
+  supplier varchar
+  receive_type varchar
+  reference varchar
+  received_by varchar
+  location_key varchar
+  template varchar
+  note_type varchar
+  note varchar
+  total_cost numeric(14,2)
+  status varchar [not null]
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table receive_line {
+  id bigint [primary key, increment]
+  document_id bigint [not null]
+  product_id bigint [not null]
+  name_snapshot varchar
+  qty numeric(14,2) [not null]
+  unit_cost numeric(14,2)
+  uom varchar
+  serials varchar
+  qty_before numeric(14,2)
+  qty_after numeric(14,2)
+}
+
+Table serial_number {
+  id bigint [primary key, increment]
+  product_id bigint [not null]
+  stock_line_id bigint
+  serial_number varchar [not null]
+  batch_lot varchar
+  expiry_date date
+  product_code varchar
+  product_name varchar
+  created_at timestamp [not null]
+}
+
+Table stock_document {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  doc_type varchar [not null]
+  doc_date date [not null]
+  supplier varchar
+  receive_type varchar
+  reference varchar
+  received_by varchar
+  location_key varchar
+  total_cost numeric(14,2)
+  note varchar
+  status varchar [not null]
+  posted_by varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table stock_line {
+  id bigint [primary key, increment]
+  document_id bigint [not null]
+  product_id bigint [not null]
+  name_snapshot varchar
+  qty numeric(14,2)
+  counted_qty numeric(14,2)
+  qty_before numeric(14,2)
+  qty_after numeric(14,2)
+  unit_cost numeric(14,2)
+  line_total numeric(14,2)
+  serials varchar
+}
+
+Table supplier {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  name varchar [not null]
+  name_kh varchar
+  supplier_group varchar
+  tax_number varchar
+  payment_term varchar
+  po_template_name varchar
+  shipment_method varchar
+  purchase_person varchar
+  term_condition varchar
+  bill_template_name varchar
+  debit_deposit_payment_term varchar
+  contact_first_name varchar
+  contact_last_name varchar
+  contact_gender varchar
+  contact_phone varchar
+  contact_mobile varchar
+  contact_email varchar
+  contact_website varchar
+  address_description varchar
+  address_name_kh varchar
+  address_line1 varchar
+  address_line2 varchar
+  address_city varchar
+  address_state varchar
+  address_country varchar
+  address_phone varchar
+  address_phone_ext varchar
+  address_fax varchar
+  address_fax_ext varchar
+  address_email varchar
+  address_website varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table supplier_group {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  name_kh varchar
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table transfer_document {
+  id bigint [primary key, increment]
+  code varchar [not null, unique]
+  doc_type varchar [not null]
+  transfer_date date [not null]
+  required_date date
+  request_transfer_date date
+  from_outlet varchar
+  from_location varchar
+  to_outlet varchar
+  to_location varchar
+  transfer_type varchar
+  reference varchar
+  template_name varchar
+  carrier varchar
+  tracking_number varchar
+  dispatch_note varchar
+  status varchar [not null]
+  user_name varchar
+  total_qty numeric(14,2)
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table transfer_line {
+  id bigint [primary key, increment]
+  transfer_document_id bigint [not null]
+  product_id bigint
+  code varchar
+  bar_code varchar
+  name varchar
+  name_kh varchar
+  uom varchar
+  on_hand numeric(14,2)
+  qty numeric(14,2) [not null]
+  unit_cost numeric(14,2)
+  line_total numeric(14,2)
+}
+
+Table unit_of_measure {
+  id bigint [primary key, increment]
+  code varchar [unique]
+  description varchar [not null]
+  name_kh varchar
+  factor double precision
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+Table users {
+  id bigint [primary key, increment]
+  full_name varchar [not null]
+  username varchar [unique]
+  email varchar [unique]
+  telegram varchar [unique]
+  facebook varchar [unique]
+  google_id varchar [unique]
+  facebook_id varchar [unique]
+  telegram_id varchar [unique]
+  telegram_user_id bigint [unique]
+  login_provider varchar
+  phone_number varchar [unique]
+  date_of_birth date
+  gender varchar
+  nationality varchar
+  password_hash varchar [not null]
+  created_at timestamp [not null]
+  updated_at timestamp
+}
+
+// =========================================================================
+// RELATIONSHIPS & FOREIGN KEYS
+// =========================================================================
+
+Ref: job_application.job_id > job.id // many-to-one
+Ref: purchase_order_items.purchase_order_id > purchase_orders.id // many-to-one
+Ref: receipt_po_items.receipt_po_id > receipt_pos.id // many-to-one
+Ref: requisition_items.requisition_id > requisitions.id // many-to-one
+Ref: return_receipt_po_items.return_receipt_po_id > return_receipt_pos.id // many-to-one
+Ref: ar_collection_invoices.ar_collection_id > ar_collections.id // many-to-one
+Ref: consignment_items.consignment_id > consignments.id // many-to-one
+Ref: customer_refund_invoices.customer_refund_id > customer_refunds.id // many-to-one
+Ref: quotation_item.quotation_id > quotation.id // many-to-one
+Ref: return_invoice_item.return_invoice_id > return_invoice.id // many-to-one
+Ref: sale_invoice_item.sale_invoice_id > sale_invoice.id // many-to-one
+Ref: sale_invoice_payment.sale_invoice_id > sale_invoice.id // many-to-one
+Ref: sale_order_item.sale_order_id > sale_order.id // many-to-one
+Ref: web_order_item.web_order_id > web_order.id // many-to-one
+Ref: adjustment_line.document_id > adjustment_document.id // many-to-one
+Ref: adjustment_line.product_id > product.id // many-to-one
+Ref: attribute_change_log.product_id > product.id // many-to-one
+Ref: cost_change_log.product_id > product.id // many-to-one
+Ref: issue_line.document_id > issue_document.id // many-to-one
+Ref: issue_line.product_id > product.id // many-to-one
+Ref: price_history.product_id > product.id // many-to-one
+Ref: product_scale.product_id > product.id // many-to-one
+Ref: product_supplier_link.product_id > product.id // many-to-one
+Ref: product_supplier_link.supplier_id > supplier.id // many-to-one
+Ref: receive_line.document_id > receive_document.id // many-to-one
+Ref: receive_line.product_id > product.id // many-to-one
+Ref: serial_number.product_id > product.id // many-to-one
+Ref: serial_number.stock_line_id > stock_line.id // many-to-one
+Ref: stock_line.document_id > stock_document.id // many-to-one
+Ref: stock_line.product_id > product.id // many-to-one
+Ref: transfer_line.transfer_document_id > transfer_document.id // many-to-one
+Ref: transfer_line.product_id > product.id // many-to-one
+Ref: member_detail.member > member.id
+Ref: job_application.job_id > job.id
+Ref: product_supplier_link.product_id > product.id
+Ref: product_supplier_link.supplier_id > supplier.id
+Ref: price_history.product_id > product.id
+Ref: cost_change_log.product_id > product.id
+Ref: serial_number.product_id > product.id
+Ref: serial_number.stock_line_id > stock_line.id
+Ref: product_scale.product_id > product.id
+Ref: stock_line.document_id > stock_document.id
+Ref: stock_line.product_id > product.id
+Ref: adjustment_line.document_id > adjustment_document.id
+Ref: adjustment_line.product_id > product.id
+Ref: issue_line.document_id > issue_document.id
+Ref: issue_line.product_id > product.id
+Ref: receive_line.document_id > receive_document.id
+Ref: receive_line.product_id > product.id
+Ref: transfer_line.transfer_document_id > transfer_document.id
+Ref: transfer_line.product_id > product.id
+Ref: quotation_item.quotation_id > quotation.id
+Ref: quotation_item.product_id > product.id
+Ref: sale_order_item.sale_order_id > sale_order.id
+Ref: sale_order_item.product_id > product.id
+Ref: sale_invoice_item.sale_invoice_id > sale_invoice.id
+Ref: sale_invoice_item.product_id > product.id
+Ref: sale_invoice_payment.sale_invoice_id > sale_invoice.id
+Ref: web_order_item.web_order_id > web_order.id
+Ref: web_order_item.product_id > product.id
+Ref: consignments.customer_id > customer.id
+Ref: consignment_items.consignment_id > consignments.id
+Ref: consignment_items.product_id > product.id
+Ref: return_invoice_item.return_invoice_id > return_invoice.id
+Ref: return_invoice_item.product_id > product.id
+Ref: ar_collections.customer_id > customer.id
+Ref: ar_collection_invoices.ar_collection_id > ar_collections.id
+Ref: customer_deposits.customer_id > customer.id
+Ref: customer_refunds.customer_id > customer.id
+Ref: customer_refund_invoices.customer_refund_id > customer_refunds.id
+Ref: requisition_items.requisition_id > requisitions.id
+Ref: requisition_items.product_id > product.id
+Ref: purchase_orders.supplier_id > supplier.id
+Ref: purchase_order_items.purchase_order_id > purchase_orders.id
+Ref: purchase_order_items.product_id > product.id
+Ref: receipt_pos.supplier_id > supplier.id
+Ref: receipt_po_items.receipt_po_id > receipt_pos.id
+Ref: receipt_po_items.product_id > product.id
+
+// =========================================================================
+// TABLE GROUPS FOR DBDATABASE.IO CANVAS
+// =========================================================================
+
+TableGroup Auth_And_Security {
+  activity_logs
+  login_sessions
+  otp_codes
+  password_reset_otps
+  users
+}
+
+TableGroup Information_And_HR {
+  job
+  job_application
+  member
+  member_detail
+}
+
+TableGroup Purchase_Management {
+  purchase_orders
+  purchase_order_items
+  receipt_pos
+  receipt_po_items
+  requisitions
+  requisition_items
+}
+
+TableGroup General {
+  return_receipt_pos
+  return_receipt_po_items
+}
+
+TableGroup Sales_And_Invoices {
+  aging_invoices
+  customer
+  customer_group
+  payment_terms
+  quotation
+  quotation_item
+  sale_invoice
+  sale_invoice_item
+  sale_invoice_payment
+  sale_order
+  sale_order_item
+  sale_promotion
+  shipment
+  web_order
+  web_order_item
+}
+
+TableGroup AR_Collections_And_Refunds {
+  ar_collections
+  ar_collection_invoices
+  consignments
+  consignment_items
+  customer_deposits
+  customer_refunds
+  customer_refund_invoices
+  return_invoice
+  return_invoice_item
+  return_shipment
+}
+
+TableGroup Inventory_Operations {
+  adjustment_document
+  adjustment_line
+  issue_document
+  issue_line
+  receive_document
+  receive_line
+  stock_document
+  stock_line
+  transfer_document
+  transfer_line
+}
+
+TableGroup Stock_Catalog {
+  attribute
+  attribute_change_log
+  brand
+  category
+  cost_change_log
+  price_history
+  product
+  product_group
+  product_scale
+  product_supplier_link
+  serial_number
+  supplier
+  supplier_group
+  unit_of_measure
+}
+
+// =========================================================================
+// SAMPLE RECORDS (FOR DBDATABASE.IO MOCK PREVIEWS)
+// =========================================================================
+
+Records users(id, username, email, role, enabled) {
+  1, 'Badmin', 'admin@bgroceries.com', 'ADMIN', true
+  2, 'ManagerJohn', 'john@bgroceries.com', 'MANAGER', true
+  3, 'CashierDara', 'dara@bgroceries.com', 'CASHIER', true
+}
+
+Records category(id, name, code) {
+  1, 'Beverages', 'CAT-BEV'
+  2, 'Snacks & Confectionery', 'CAT-SNK'
+  3, 'Dairy & Eggs', 'CAT-DAI'
+  4, 'Grains & Rice', 'CAT-GRN'
+}
+
+Records brand(id, name, code) {
+  1, 'Coca Cola Company', 'BRD-CC'
+  2, 'Frito Lay', 'BRD-FL'
+  3, 'Anchor', 'BRD-ANC'
+}
+
+Records customer(id, code, name, phone, email, status) {
+  1, 'CUST-001', 'Angkor Supermart', '+855 12 888 999', 'orders@angkorsmart.com', 'ACTIVE'
+  2, 'CUST-002', 'Lucky Mart Tuol Kork', '+855 23 777 666', 'procurement@luckymart.kh', 'ACTIVE'
+}
+
+Records requisitions(id, code, date, require_date, requisition_type, requisition_amount, user_name, status) {
+  1, 'REQ-20260904-0001', '2026-09-04', '2026-09-11', 'Store Replenishment', 1450.00, 'Badmin', 'OPEN'
+  2, 'REQ-20260904-0002', '2026-09-04', '2026-09-12', 'Urgent Restock', 820.50, 'ManagerJohn', 'COMPLETED'
+}
+
+Records purchase_orders(id, code, date, require_date, purchase_person, supplier, grand_total, balance, status, username, outlet) {
+  1, 'PO-20260904-0001', '2026-09-04', '2026-09-11', 'Badmin', 'Farm Pure Dairy', 850.00, 150.00, 'COMPLETED', 'Badmin', 'Main Store Warehouse'
+  2, 'PO-20260904-0002', '2026-09-04', '2026-09-12', 'ManagerJohn', 'Cambodia Beverage Co.', 1200.00, 0.00, 'OPEN', 'Badmin', 'Central Cold Storage'
+}
+
+Records purchase_order_items(id, purchase_order_id, item_code, barcode, description, qty, cost, total) {
+  1, 1, 'PRD-001', '885012345678', 'Fresh Whole Milk 1L', 120, 1.50, 180.00
+}
+
+Records receipt_pos(id, receipt_po_code, po_code, date, supplier, balance, amount, qty, status, outlet, shipment, username) {
+  1, 'REC-20260904-0001', 'PO-20260904-0001', '2026-09-04', 'Farm Pure Dairy', 150.00, 850.00, 120, 'RECEIVED', 'Main Store Warehouse', 'Standard Trucking', 'Badmin'
+}
+
+Records receipt_po_items(id, receipt_po_id, code, barcode, description, qty, uom, cost, total) {
+  1, 1, 'PRD-001', '885012345678', 'Fresh Whole Milk 1L', 120, 'Bottle', 1.50, 180.00
+}

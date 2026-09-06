@@ -1,0 +1,393 @@
+/* ============================================================
+   FRESHMART FAQ — Handcrafted Dark Design
+   Emil Kowalski Tactile Polish & Custom Easings
+   ============================================================ */
+
+.faq-page {
+  background: #232F3F;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 60px 0 100px;
+  font-family: var(--font-sans, "Montserrat", "Kantumruy Pro", sans-serif);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(119, 188, 31, 0.05) 0%, transparent 60%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 700px, 32px 32px;
+}
+
+.faq-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ── */
+.faq-hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.faq-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #77BC1F;
+  background: rgba(119, 188, 31, 0.08);
+  border: 1px solid rgba(119, 188, 31, 0.25);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.faq-3d-eyebrow-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.faq-hero-title {
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.faq-hero-sub {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 600px;
+  margin: 0 0 32px;
+}
+
+/* Search Box */
+.faq-search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(18, 26, 36, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  padding: 8px 20px;
+  width: 100%;
+  max-width: 580px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.faq-search-box:focus-within {
+  border-color: #77BC1F;
+  box-shadow: 0 0 0 3px rgba(119, 188, 31, 0.18), 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+.faq-search-icon {
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+.faq-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 0.925rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  padding: 8px 0;
+}
+
+.faq-search-clear {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease;
+}
+
+.faq-search-clear:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Category Tabs ── */
+.faq-cat-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.faq-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 26, 36, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.faq-cat-pill:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.faq-cat-pill:active {
+  transform: scale(0.97);
+}
+
+.faq-cat-pill--active {
+  background: #77BC1F;
+  color: #1A232F;
+  border-color: #77BC1F;
+  box-shadow: 0 6px 18px rgba(119, 188, 31, 0.35);
+}
+
+.faq-cat-pill--active .faq-cat-3d-icon {
+  filter: brightness(1.1);
+}
+
+.faq-cat-3d-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ── Accordion List ── */
+.faq-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.faq-search-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.faq-search-cat-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.faq-search-cat-header h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #77BC1F;
+  margin: 0;
+}
+
+.faq-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-card {
+  background: rgba(18, 26, 36, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.faq-card:hover {
+  border-color: rgba(119, 188, 31, 0.3);
+}
+
+.faq-card--open {
+  border-color: rgba(119, 188, 31, 0.45);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.faq-card-header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-card-header:active {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-card-q {
+  font-size: 0.975rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.faq-card--open .faq-card-q {
+  color: #77BC1F;
+}
+
+.faq-card-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: all 160ms ease;
+}
+
+.faq-card--open .faq-card-toggle {
+  background: #77BC1F;
+  color: #1A232F;
+}
+
+.faq-card-body {
+  padding: 0 24px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 4px;
+  padding-top: 16px;
+}
+
+.faq-card-a {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+/* ── Help Card ── */
+.faq-help-card {
+  background: linear-gradient(135deg, rgba(119, 188, 31, 0.12) 0%, rgba(18, 26, 36, 0.85) 100%);
+  border: 1px solid rgba(119, 188, 31, 0.3);
+  border-radius: 22px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.faq-help-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(119, 188, 31, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.faq-help-3d-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.faq-help-copy {
+  flex: 1;
+}
+
+.faq-help-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.faq-help-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.faq-btn-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #1A232F;
+  background: linear-gradient(135deg, #77BC1F 0%, #8fd13a 100%);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(119, 188, 31, 0.35);
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.faq-btn-help:hover {
+  transform: translateY(-2px);
+}
+
+.faq-btn-help:active {
+  transform: scale(0.97);
+}
+
+/* State */
+.faq-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(18, 26, 36, 0.5);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+.faq-empty-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .faq-help-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .faq-btn-help {
+    width: 100%;
+    justify-content: center;
+  }
+}

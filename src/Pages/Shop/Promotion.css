@@ -1,0 +1,557 @@
+/* ============================================================
+   FRESHMART — PROMOTIONS & DEALS
+   Primary Green: #77BC1F | Accent Orange: #FF9900
+   Navy Dark: #232F3F | Card: #1E2836
+   ============================================================ */
+
+.promo-page {
+  width: 100%;
+  background: #232F3F;
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: var(--font-sans, "Montserrat", "Kantumruy Pro", sans-serif);
+}
+
+/* ── Hero Banner ── */
+.promo-hero-card {
+  background: linear-gradient(135deg, #1a2232 0%, #1E2836 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 56px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-hero-card::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: 10%;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(255, 153, 0, 0.14) 0%, transparent 70%);
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.promo-hero-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.promo-hero-copy {
+  max-width: 640px;
+}
+
+.promo-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FF9900;
+  background: rgba(255, 153, 0, 0.12);
+  border: 1px solid rgba(255, 153, 0, 0.32);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.promo-3d-micro {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.promo-title {
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.promo-title-highlight {
+  color: #FF9900;
+}
+
+.promo-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 28px;
+}
+
+/* ── Countdown Timer ── */
+.promo-timer-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.promo-timer-lbl {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-right: 4px;
+}
+
+.promo-clock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.promo-clock-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #232F3F;
+  border: 1px solid rgba(255, 153, 0, 0.25);
+  padding: 8px 14px;
+  border-radius: 14px;
+  min-width: 58px;
+}
+
+.promo-clock-num {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #FF9900;
+  line-height: 1;
+}
+
+.promo-clock-sub {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 3px;
+}
+
+.promo-clock-colon {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #FF9900;
+  margin-bottom: 12px;
+}
+
+/* ── Hero Visual ── */
+.promo-hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 12px 16px 16px;
+}
+
+.promo-visual-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center 40%, rgba(255, 153, 0, 0.28) 0%, transparent 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.promo-hero-3d-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 32px rgba(255, 153, 0, 0.35));
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge flows naturally below the icon */
+.promo-badge-float {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(26, 35, 47, 0.92);
+  border: 1px solid rgba(255, 153, 0, 0.45);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FF9900;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.promo-badge-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ── Content Wrapper ── */
+.promo-content-wrap {
+  padding: 40px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Section Header ── */
+.promo-section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.promo-section-3d-sm {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.promo-section-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.promo-section-sub {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Voucher Cards ── */
+.promo-vouchers-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-vouchers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Coupon ticket card */
+.promo-voucher-card {
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  display: flex;
+  overflow: hidden;
+  min-height: 110px;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.promo-voucher-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 153, 0, 0.3);
+}
+
+/* Left accent panel */
+.promo-voucher-left {
+  width: 96px;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, rgba(255, 153, 0, 0.18) 0%, rgba(255, 153, 0, 0.06) 100%);
+  border-right: 2px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  gap: 5px;
+}
+
+.promo-voucher-disc {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #FF9900;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.promo-voucher-min {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.38);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Right content panel */
+.promo-voucher-right {
+  flex: 1;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.promo-voucher-desc {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Code row: tag + button side by side */
+.promo-voucher-code-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.promo-voucher-code-tag {
+  background: rgba(119, 188, 31, 0.1);
+  border: 1px solid rgba(119, 188, 31, 0.28);
+  color: #77BC1F;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-family: "Courier New", monospace;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.promo-btn-copy {
+  flex: 1;
+  background: rgba(255, 153, 0, 0.1);
+  border: 1px solid rgba(255, 153, 0, 0.25);
+  color: #FF9900;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 140ms ease;
+  font-family: inherit;
+  text-align: center;
+  min-width: 0;
+}
+
+.promo-btn-copy:hover {
+  background: #FF9900;
+  color: #1A232F;
+  border-color: #FF9900;
+}
+
+.promo-btn-copy--done {
+  background: rgba(119, 188, 31, 0.15);
+  border-color: rgba(119, 188, 31, 0.4);
+  color: #77BC1F;
+}
+
+/* ── Deals Grid ── */
+.promo-deals-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.promo-deal-card {
+  background: #1E2836;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.promo-deal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 153, 0, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.promo-deal-media {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.promo-deal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 250ms ease;
+}
+
+.promo-deal-card:hover .promo-deal-img {
+  transform: scale(1.04);
+}
+
+.promo-deal-discount-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #FF9900;
+  color: #1A232F;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.promo-deal-save-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(26, 35, 47, 0.88);
+  border: 1px solid rgba(119, 188, 31, 0.35);
+  color: #77BC1F;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+}
+
+.promo-deal-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.promo-deal-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #77BC1F;
+}
+
+.promo-deal-micro-leaf {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.promo-deal-name {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.promo-deal-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.promo-deal-price {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #77BC1F;
+}
+
+.promo-deal-price-old {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: line-through;
+}
+
+.promo-deal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 153, 0, 0.12);
+  border: 1px solid rgba(255, 153, 0, 0.28);
+  color: #FF9900;
+  padding: 9px 16px;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: auto;
+  transition: all 140ms ease;
+  width: fit-content;
+}
+
+.promo-deal-cta:hover {
+  background: #FF9900;
+  color: #1A232F;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .promo-vouchers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .promo-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .promo-hero-visual {
+    align-self: center;
+  }
+
+  .promo-vouchers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-content-wrap {
+    padding: 32px 0 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-hero-inner {
+    padding: 0 4px;
+  }
+
+  .promo-voucher-left {
+    width: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-deal-card,
+  .promo-voucher-card,
+  .promo-deal-img,
+  .promo-deal-cta,
+  .promo-btn-copy {
+    transition: none;
+  }
+}

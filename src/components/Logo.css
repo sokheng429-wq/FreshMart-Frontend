@@ -1,0 +1,97 @@
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-logo:hover {
+  transform: translateY(-1px);
+}
+
+.brand-logo-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo-svg {
+  width: 42px;
+  height: 42px;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.brand-logo:hover .brand-logo-svg {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.brand-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-logo-title {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.brand-logo-title-fresh {
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.brand-logo-title-mart {
+  color: #77BC1F;
+  margin-left: 2px;
+  background: linear-gradient(135deg, #8EE026 0%, #68B213 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-logo-subtitle {
+  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #FF9900;
+  margin-top: 2px;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+/* Small size variant */
+.brand-logo--small .brand-logo-svg {
+  width: 32px;
+  height: 32px;
+}
+
+.brand-logo--small .brand-logo-title {
+  font-size: 17px;
+}
+
+.brand-logo--small .brand-logo-subtitle {
+  font-size: 7px;
+}
+
+/* Large size variant */
+.brand-logo--large .brand-logo-svg {
+  width: 52px;
+  height: 52px;
+}
+
+.brand-logo--large .brand-logo-title {
+  font-size: 28px;
+}
+
+.brand-logo--large .brand-logo-subtitle {
+  font-size: 10px;
+}

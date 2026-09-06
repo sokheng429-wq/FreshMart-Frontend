@@ -1,0 +1,55 @@
+/* ===== PRODUCTS HUB - STYLES ===== */
+
+/* Scrollbar for list sections */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #FF9900;
+  outline-offset: 2px;
+}
+
+/* Hub section card */
+.hub-card {
+  transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Hub section icon container */
+.hub-icon {
+  transition: transform 0.15s;
+}
+
+.hub-card:hover .hub-icon {
+  transform: scale(1.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .hub-grid {
+    grid-template-columns: 1fr;
+  }
+}
