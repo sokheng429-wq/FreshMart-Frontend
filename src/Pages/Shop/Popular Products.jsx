@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { PRODUCTS, CATEGORIES, FALLBACK_IMG } from '../../data/products'
-import { adminProductAPI, adminCategoryAPI, productAPI } from '../../api/api'
+import { adminProductAPI, adminCategoryAPI, productAPI, BACKEND_URL } from '../../api/api'
 import { ProductShop } from '../../components/ProductShop'
 import { useLanguage } from '../../context/LanguageContext'
 
@@ -57,7 +57,7 @@ const mapBackendProduct = (item) => {
 
   let img = item.imageUrl || item.image || item.photoUrl || null
   if (typeof img === 'string' && img.startsWith('/')) {
-    img = `http://localhost:8081${img}`
+    img = `${BACKEND_URL}${img}`
   }
 
   const price = Number(item.basePrice ?? item.price ?? 0) || 0

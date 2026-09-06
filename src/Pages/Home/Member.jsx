@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
-import { memberAPI, publicAPI } from '../../api/api'
+import { memberAPI, publicAPI, BACKEND_URL } from '../../api/api'
 
 // Assets
 import profileImg from '../../assets/Profile.avif'
@@ -171,7 +171,7 @@ const toCard = (m) => {
 
   let img = m.photoUrl || m.image || m.avatar || FALLBACK_IMAGE
   if (typeof img === 'string' && img.startsWith('/')) {
-    img = `http://localhost:8081${img}`
+    img = `${BACKEND_URL}${img}`
   }
 
   return {

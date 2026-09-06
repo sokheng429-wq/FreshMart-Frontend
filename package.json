@@ -8,6 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "preview:cf": "npx wrangler pages dev dist",
+    "deploy": "npm run build && npx wrangler pages deploy dist",
     "tunnel": "node ngrok-tunnel.mjs"
   },
   "dependencies": {

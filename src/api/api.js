@@ -1,7 +1,8 @@
 // ===== API CONFIG =====
-// Backend runs on port 8081 (see B-backend/src/main/resources/application.yml).
-// CORS is already open on the backend, so a full URL is fine.
-const API_BASE = 'http://localhost:8081/api'
+// Backend runs on port 8081 locally by default (see B-backend/src/main/resources/application.yml).
+// In production (Cloudflare Pages), configure VITE_BACKEND_URL and/or VITE_API_BASE_URL.
+export const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:8081').replace(/\/+$/, '')
+export const API_BASE = (import.meta.env.VITE_API_BASE_URL || `${BACKEND_URL}/api`).replace(/\/+$/, '')
 
 async function request(path, options = {}) {
   const token = localStorage.getItem('token')
@@ -92,7 +93,7 @@ export const authAPI = {
     fetch(`${API_BASE}/auth/logout`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
-    }).catch(() => {}),
+    }).catch(() => { }),
 }
 
 // ===== PRODUCTS =====

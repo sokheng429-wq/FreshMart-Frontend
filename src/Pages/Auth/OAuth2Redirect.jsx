@@ -1,32 +1,31 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import { API_BASE } from '../../api/api'
 import './OAuth2Redirect.css'
 
 export const OAuth2Redirect = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const { login } = useAuth()
-  const [error, setError] = useState('')
+  
+  const token = searchParams.get('token')
+  const errorParam = searchParams.get('error')
+  const initialError = errorParam
+    ? decodeURIComponent(errorParam)
+    : (!token ? 'No token received from OAuth2 provider.' : '')
+
+  const [error, setError] = useState(initialError)
 
   useEffect(() => {
-    const token = searchParams.get('token')
-    const errorParam = searchParams.get('error')
-
-    if (errorParam) {
-      setError(decodeURIComponent(errorParam))
-      return
-    }
-
-    if (!token) {
-      setError('No token received from OAuth2 provider.')
+    if (errorParam || !token) {
       return
     }
 
     // The backend already validated the OAuth2 token and created/logged in the user.
     // It hands us back a JWT in the ?token= query param. We just need to fetch the
     // user profile with this JWT and store it in AuthContext.
-    fetch('http://localhost:8081/api/users/me', {
+    fetch(`${API_BASE}/users/me`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -44,7 +43,7 @@ export const OAuth2Redirect = () => {
       .catch(() => {
         setError('Failed to fetch user profile. Please try again.')
       })
-  }, [searchParams, login, navigate])
+  }, [token, errorParam, login, navigate])
 
   if (error) {
     return (

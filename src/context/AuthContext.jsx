@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react'
+import { authAPI } from '../api/api'
 
 const AuthContext = createContext(null)
 
@@ -41,10 +42,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token')
     // Tell the backend to evict the token from the activity store
     if (token) {
-      fetch('http://localhost:8081/api/auth/logout', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${token}` },
-      }).catch(() => {})
+      authAPI.logout(token)
     }
     setUser(null)
     setIsLoggedIn(false)

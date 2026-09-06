@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
-import { authAPI } from '../../api/api'
+import { authAPI, BACKEND_URL } from '../../api/api'
 import { useTelegramLogin } from '../../hooks/useTelegramLogin'
 import { Logo } from '../../components/Logo'
 import bagIcon from '../../assets/icon/3dicons-bag-dynamic-color.png'
@@ -301,7 +301,7 @@ export const Login = () => {
 
           <div className="social-auth">
             <a
-              href="http://localhost:8081/oauth2/authorization/google"
+              href={`${BACKEND_URL}/oauth2/authorization/google`}
               className="social-btn social-btn--gmail group"
             >
               <GmailIcon />
@@ -309,7 +309,7 @@ export const Login = () => {
             </a>
 
             <a
-              href="http://localhost:8081/oauth2/authorization/facebook"
+              href={`${BACKEND_URL}/oauth2/authorization/facebook`}
               className="social-btn social-btn--facebook group"
             >
               <FacebookIcon />

@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { BACKEND_URL } from '../api/api';
 
 const TELEGRAM_BOT_USERNAME = import.meta.env.VITE_TELEGRAM_BOT_USERNAME || 'FreshMartBot';
-const API_BASE_URL = 'http://localhost:8081';
+const API_BASE_URL = BACKEND_URL;
 const POLL_INTERVAL_MS = 2000;
 const MAX_POLL_ATTEMPTS = 150; // 5 minutes
 
